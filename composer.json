@@ -1,6 +1,6 @@
 {
-    "name": "darksystemtecnologia/busca-cep",
-    "description": "Api para buscar cep e endereços",
+    "name": "darksystemtecnologia/correios",
+    "description": "Api para integração com o correios do brasil",
     "keywords": [
         "correios-php",
         "correios",
