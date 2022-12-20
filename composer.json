@@ -1,0 +1,32 @@
+{
+    "name": "darksystemtecnologia/busca-cep",
+    "description": "Api para buscar cep e endereços",
+    "keywords": [
+        "correios-php",
+        "correios",
+        "frete",
+        "calculo",
+        "rastreio",
+        "cep"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DarkSystem\\Correios\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Denilson Silva - Dark System",
+            "email": "contato@darksystem.com.br"
+        }
+    ],
+    "require": {
+        "php": "~8.0",
+        "guzzlehttp/guzzle": "~7.5"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
