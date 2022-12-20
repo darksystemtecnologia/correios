@@ -75,9 +75,9 @@ $ composer test
 A Licença MIT (MIT). Consulte o [arquivo de licença](LICENSE) para obter mais informações.
 
 [ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-php-version]: https://img.shields.io/packagist/dependency-v/darksystemtecnologia/busca-cep/php?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/darksystemtecnologia/busca-cep?style=flat-square
-[ico-packagist-version]: https://img.shields.io/packagist/v/darksystemtecnologia/busca-cep?style=flat-square
+[ico-php-version]: https://img.shields.io/packagist/dependency-v/darksystemtecnologia/correios/php?style=flat-square
+[ico-downloads]: https://img.shields.io/packagist/dt/darksystemtecnologia/correios?style=flat-square
+[ico-packagist-version]: https://img.shields.io/packagist/v/darksystemtecnologia/correios?style=flat-square
 
 [correios-sigep]: https://apps.correios.com.br/SigepMasterJPA/AtendeClienteService/AtendeCliente?wsdl
-[link-downloads]: https://packagist.org/packages/darksystemtecnologia/busca-cep
+[link-downloads]: https://packagist.org/packages/darksystemtecnologia/correios
