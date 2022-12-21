@@ -73,15 +73,15 @@ require 'vendor/autoload.php';
 $correios = Cliente::FRETE();
 
 $res = $correios->origin('39906306')
-                ->destination('75053290')
-                // aceita multiplos serviços
-                ->services(Service::SEDEX, Service::PAC)
-                // largura, altura, comprimento, 
-                // peso e quantidade
-                ->item(16, 16, 16, .3, 1) 
-                ->item(16, 16, 16, .3, 3)
-                ->item(16, 16, 16, .3, 2)
-                ->calculate();
+        ->destination('75053290')
+        // aceita multiplos serviços
+        ->services(Service::SEDEX, Service::PAC)
+        // largura, altura, comprimento, 
+        // peso e quantidade
+        ->item(16, 16, 16, .3, 1) 
+        ->item(16, 16, 16, .3, 3)
+        ->item(16, 16, 16, .3, 2)
+        ->calculate();
 var_dump($res);
 ```
 
