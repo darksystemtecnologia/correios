@@ -24,6 +24,6 @@ class Client
      */
     public static function FRETE()
     {
-        return new FreteService(new HttpClient());
+        return (object)new FreteService(new HttpClient());
     }
 }

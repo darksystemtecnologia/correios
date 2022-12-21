@@ -332,25 +332,18 @@ class FreteService implements FreteInterface
      */
     protected function transformCorreiosService(array $service)
     {
-        // $error = [];
-
-        // var_dump($service['Erro']);
-        // die();
-
-        if ($service['Erro'] != '0') {
-            return [
+        if ($service['Erro'] != 0) {
+            return (object)[
                 'code' => $service['Erro'],
                 'message' => $service['MsgErro'],
             ];
         }
         
-        die();
-        return [
+        return (object)[
             'name' => $this->friendlyServiceName($service['Codigo']),
             'code' => $service['Codigo'],
             'price' => floatval(str_replace(',', '.', $service['Valor'])),
             'deadline' => intval($service['PrazoEntrega']),
-            // 'error' => $error,
         ];
     }
 

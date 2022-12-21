@@ -11,18 +11,19 @@ Uma maneira fácil de interagir com as principais funcionalidades dos [Correios]
 ## Funcionalidades
 
 - [Consultar CEP](#consultar-cep)
+- [Consultar Preços e Prazos](#consultar-preços-e-prazos)
 
 ## Instalação
 
 Via Composer
 
 ``` bash
-$ composer require darksystem/busca-cep
+$ composer require darksystem/correios
 ```
 
 ## Uso
 
-### Consultar CEP
+- ### Consultar CEP
 
 Encontrar endereço pelo CEP consultando diretamente o [WebService][correios-sigep] dos Correios.
 
@@ -34,11 +35,11 @@ require 'vendor/autoload.php';
 $correios = Client::CEP('75053290');
 
 var_dump($correios);
+```
 
-/*
+#### Resultado:
 
-Resultado:
-
+```json
 object(stdClass)#31 (6) {
   ["cep"]=>
   string(9) "75053-200"
@@ -57,17 +58,60 @@ object(stdClass)#31 (6) {
   ["uf"]=>
   string(2) "GO"
 }
-*/
 ```
 
-<!-- ## Change log -->
+- ### Consultar Preços e Prazos
 
-<!-- Consulte [CHANGELOG](.github/CHANGELOG.md) para obter mais informações sobre o que mudou recentemente. -->
+Calcular preços e prazos de serviços de entrega (Sedex, PAC e etc), com **suporte a multiplos objetos** na mesma consulta.
 
-## Testando
+``` php
+use DarkSystem\Correios\Client;
+use DarkSystem\Correios\Service;
 
-``` bash
-$ composer test
+require 'vendor/autoload.php';
+
+$correios = Cliente::FRETE();
+
+$res = $correios->origin('39906306')
+                ->destination('75053290')
+                // aceita multiplos serviços
+                ->services(Service::SEDEX, Service::PAC)
+                // largura, altura, comprimento, 
+                // peso e quantidade
+                ->item(16, 16, 16, .3, 1) 
+                ->item(16, 16, 16, .3, 3)
+                ->item(16, 16, 16, .3, 2)
+                ->calculate();
+var_dump($res);
+```
+
+#### Resultado:
+
+``` json
+array(2) {
+  [0]=>
+  object(stdClass)#22 (4) {
+    ["name"]=>
+    string(5) "Sedex"
+    ["code"]=>
+    string(4) "4014"
+    ["price"]=>
+    float(316.3)
+    ["deadline"]=>
+    int(4)
+  }
+  [1]=>
+  object(stdClass)#37 (4) {
+    ["name"]=>
+    string(3) "PAC"
+    ["code"]=>
+    string(4) "4510"
+    ["price"]=>
+    float(171.6)
+    ["deadline"]=>
+    int(8)
+  }
+}
 ```
 
 ## Licença
