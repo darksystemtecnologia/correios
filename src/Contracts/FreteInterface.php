@@ -34,11 +34,11 @@ interface FreteInterface
     /**
      * Serviços a serem calculados.
      *
-     * @param  array $services
+     * @param  int ...$services
      *
      * @return self
      */
-    public function services($services);
+    public function services(...$services);
 
     /**
      * Código administrativo junto à ECT. O código está disponível no

@@ -124,16 +124,13 @@ class FreteService implements FreteInterface
     /**
      * Serviços a serem calculados.
      *
-     * @param  array $services
+     * @param  int ...$services
      *
      * @return self
      */
-    public function services($services)
+    public function services(...$services)
     {
-        $this->services = $services;
-
-        // var_dump($services);
-        // die();
+        $this->services = array_unique($services);
 
         return $this;
     }
